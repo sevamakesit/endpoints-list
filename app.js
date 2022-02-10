@@ -10,4 +10,22 @@ app.get('/urls', async (req, res) => {
   res.json(urls)
 })
 
+app.post('/review-apps/:name?', async (req, res) => {
+  if (req.query.secret !== process.env.SECRET) {
+    res.status(403).json({status: 'go away'})
+    return
+  }
+  const urls = await manager.addReviewAppName(req.params.name)
+  res.json({status: 'ok'})
+})
+
+app.delete('/review-apps/:name?', async (req, res) => {
+  if (req.query.secret !== process.env.SECRET) {
+    res.status(403).json({status: 'go away'})
+    return
+  }
+  const urls = await manager.removeReviewAppName(req.params.name)
+  res.json({status: 'ok'})
+})
+
 export default app
