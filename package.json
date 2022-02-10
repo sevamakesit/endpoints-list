@@ -4,6 +4,7 @@
   "author": "Seva Rybakov <jumpincode@gmail.com>",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "jest": "^27.5.1"
   },
