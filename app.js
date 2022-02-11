@@ -8,7 +8,7 @@ const app = express()
 
 app.use(basicAuth({
   users: { 'zipline_device': process.env.SECRET }
-})
+}))
 
 app.get('/urls', async (req, res) => {
   const urls = await manager.getAllAppUrls()
